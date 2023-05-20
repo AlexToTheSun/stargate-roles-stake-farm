@@ -443,7 +443,7 @@ if __name__ == "__main__":
 
         # 1) покупаем STG
         # USDC_amount = 0.01
-        USDC_amount = random.uniform(57.0497, 60.9)  # покупаем 131-140 монет на 61$ макс по курсу, на момент написания кода
+        USDC_amount = random.uniform(15.807, 16.12)  # покупаем 25-26 монет на 16$ макс по курсу, на момент написания кода
         swap_out_str = 'USDC'
         swap_in_str = 'STG'
 
@@ -464,9 +464,9 @@ if __name__ == "__main__":
 
         # 3) лочим STG на 36 месяцев, получаем veSTG
         STG_balance = get_token_balance(web3, network, swap_in_str)
-        STG_amount = STG_balance - round(random.uniform(100.1, 103.01), 4)
-        if STG_amount < 27:
-            cprint(f'STG на балансе {STG_balance}, если оставить больше 100 монет на балансе, тогджа не хватит чтобы положить в пул, там нужно монет 27 минимум. \nЗавершение работы', 'red')
+        STG_amount = STG_balance - round(random.uniform(0.154, 0.2), 4)
+        if STG_amount < 25:
+            cprint(f'STG на балансе {STG_balance}, если оставить больше 100 монет на балансе, тогда не хватит чтобы положить в пул, там нужно монет 27 минимум. \nЗавершение работы', 'red')
             sys.exit(1)
         lock_STG(web3, private_key, network, my_address, STG_amount)
         time.sleep(random.randint(sl_sec_beg, sl_sec_end))
@@ -483,7 +483,7 @@ if __name__ == "__main__":
 
         # 5) теперь закидываем ликвидность в USDC
         # amount = 0.03
-        amount = round(random.uniform(1.05, 1.5), 2)  # от 1.05$ до 1.59$
+        amount = round(random.uniform(0.805, 1.1), 2)  # от 1.05$ до 1.59$
         add_liq_USDC(web3, private_key, network, my_address, amount)
         time.sleep(random.randint(sl_sec_beg, sl_sec_end))
 
